@@ -95,7 +95,7 @@ impl<B: Backend> SimpleOptimizer<B> for Sgd<B> {
     }
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "std"))]
 mod tests {
     use super::*;
     use crate::{

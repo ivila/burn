@@ -1,3 +1,4 @@
+#![cfg_attr(not(feature = "std"), no_std)]
 #![warn(missing_docs)]
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 
@@ -34,3 +35,28 @@ pub use backend::*;
 
 #[cfg(feature = "export_tests")]
 mod tests;
+
+/// A facade around all the types we need from the `std`, `core`, and `alloc`
+/// crates. This avoids elaborate import wrangling having to happen in every
+/// module.
+mod libs {
+    cfg_block::cfg_block! {
+        if #[cfg(feature = "std")] {
+            pub use std::collections::{HashMap, HashSet};
+            pub use std::sync::Arc;
+            pub use std::{vec, vec::Vec};
+            pub use std::string::String;
+            pub use std::boxed::Box;
+            pub use std::format;
+            pub use std::borrow::ToOwned;
+        } else {
+            pub use hashbrown::{HashMap, HashSet};
+            pub use alloc::sync::Arc;
+            pub use alloc::{vec, vec::Vec};
+            pub use alloc::string::String;
+            pub use alloc::boxed::Box;
+            pub use alloc::format;
+            pub use alloc::borrow::ToOwned;
+        }
+    }
+}

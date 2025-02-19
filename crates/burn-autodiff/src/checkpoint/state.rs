@@ -1,6 +1,7 @@
-use std::{any::Any, collections::HashMap};
+use core::any::Any;
 
 use crate::graph::NodeID;
+use crate::libs::{Box, HashMap};
 
 /// In order to accept arbitrary node output in the same hashmap, we need to upcast them to any.
 pub(crate) type StateContent = Box<dyn Any + Send>;

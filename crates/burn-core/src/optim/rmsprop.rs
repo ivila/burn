@@ -313,7 +313,7 @@ impl<B: Backend, const D: usize> RmsPropMomentumState<B, D> {
     }
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "std"))]
 mod tests {
     use burn_tensor::Shape;
 

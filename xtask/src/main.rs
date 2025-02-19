@@ -12,6 +12,12 @@ const ARM_TARGET: &str = "thumbv7m-none-eabi";
 const ARM_NO_ATOMIC_PTR_TARGET: &str = "thumbv6m-none-eabi";
 const NO_STD_CRATES: &[&str] = &[
     "burn",
+    // cannot run no-std tests on burn-autodiff as no-std tests run with target
+    // `thumbv7m-none-eabi`(a 32-bit environment), and burn-autodiff need
+    // `core::sync::atomic::AtomicU64`, which doesn't live in a 32-bit
+    // environment.
+    // Mark it here for notification.
+    // "burn-autodiff",
     "burn-core",
     "burn-common",
     "burn-tensor",

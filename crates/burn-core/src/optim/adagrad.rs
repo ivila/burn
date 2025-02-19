@@ -150,7 +150,7 @@ impl<B: Backend, const D: usize> LrDecayState<B, D> {
     }
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "std"))]
 mod tests {
     use super::*;
     use crate::module::{Module, Param};

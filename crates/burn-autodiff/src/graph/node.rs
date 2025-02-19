@@ -1,7 +1,7 @@
-use std::sync::atomic::{AtomicU64, Ordering};
-use std::sync::Arc;
+use core::sync::atomic::{AtomicU64, Ordering};
 
 use crate::checkpoint::retro_forward::RetroForward;
+use crate::libs::{Arc, Vec};
 use crate::runtime::AutodiffClientImpl;
 
 use super::Requirement;

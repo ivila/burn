@@ -1,6 +1,7 @@
 use crate::{
     checkpoint::strategy::{CheckpointStrategy, NoCheckpointing},
     grads::Gradients,
+    libs::{format, String},
     runtime::AutodiffClient,
     tensor::AutodiffTensor,
 };
