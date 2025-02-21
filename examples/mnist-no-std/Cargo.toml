@@ -1,0 +1,13 @@
+[package]
+name = "mnist-no-std"
+authors = ["Zehui Chen <ivila@apache.org>"]
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+publish = false
+
+[dependencies]
+mnist = { version = "0.6.0", features = ["download"] }
+no-std-mnist = { path = "./no-std-mnist" }
+clap.workspace = true
+rand = { workspace = true, default-features = true }

@@ -11,6 +11,7 @@ members = [
     "crates/burn-import/onnx-tests",
     "examples/*",
     "examples/pytorch-import/model",
+    "examples/mnist-no-std/no-std-mnist",
     "xtask",
 ]
 

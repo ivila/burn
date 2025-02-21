@@ -1,0 +1,11 @@
+[package]
+name = "no-std-mnist"
+authors = ["Zehui Chen <ivila@apache.org>"]
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+publish = false
+
+[dependencies]
+burn = { path = "../../../crates/burn", default-features = false, features = ["ndarray", "autodiff"] }
+burn-no-std-tests = { path = "../../../crates/burn-no-std-tests" }
